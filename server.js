@@ -4,16 +4,16 @@ import Feedback from './models/schema.js'
 const app = express()
 app.use(express.json())
 
-await connectDB()
-
 app.post('/users', async (req, res) => {
+  await connectDB()
   const data = await Feedback.create(req.body)
-  res.status(201).json(data)
+  res.status(200).json(data)
 })
 
 app.get('/users', async (req, res) => {
+  await connectDB()
   const data = await Feedback.find({})
-  res.status(201).json(data)
+  res.status(200).json(data)
 })
 
 app.get('/', (req, res) => {
