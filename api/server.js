@@ -4,7 +4,7 @@ import Feedback from '../models/schema.js'
 const app = express()
 app.use(express.json())
 
-app.post('/users', async (req, res) => {
+app.post('/api/users', async (req, res) => {
   await connectDB()
   const data = await Feedback.create(req.body)
   res.status(200).json(data)
