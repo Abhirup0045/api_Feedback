@@ -10,7 +10,7 @@ app.post('/users', async (req, res) => {
   res.status(200).json(data)
 })
 
-app.get('/users', async (req, res) => {
+app.get('/api/users', async (req, res) => {
   await connectDB()
   const data = await Feedback.find({})
   res.status(200).json(data)
