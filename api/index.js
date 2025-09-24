@@ -1,6 +1,6 @@
 import express from 'express'
-import connectDB from './db.js'
-import Feedback from './models/schema.js'
+import connectDB from '../db.js'
+import Feedback from '../models/schema.js'
 const app = express()
 app.use(express.json())
 
