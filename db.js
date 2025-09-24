@@ -13,7 +13,7 @@ export default async function connectDB() {
   }
 
   if (!cached.promise) {
-    const uri = process.env.MONGODB_URI
+    const uri = process.env.DB_URI
     if (!uri) throw new Error('MONGODB_URI not defined in environment')
 
     cached.promise = mongoose
