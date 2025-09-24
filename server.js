@@ -1,5 +1,5 @@
 import express from 'express'
-import connctDB from './db.js'
+import connectDB from './db.js'
 const app = express()
 app.use(express.json())
 
