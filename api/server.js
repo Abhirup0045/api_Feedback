@@ -16,8 +16,26 @@ app.get('/api/users', async (req, res) => {
   res.status(200).json(data)
 })
 
+app.get('/api/users/:id', async (req, res) => {
+  await connectDB()
+  const data = await Feedback.findById(req.params.id)
+  if (data === null) {
+    res.status(404).json({ message: 'user Not Found!' })
+  } else {
+    res.status(200).json(data)
+  }
+})
+
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'API is Live Developer' })
+})
+
+app.delete('/api/users/:id', async (req, res) => {
+  await connectDB()
+  const delCount = await Feedback.deleteOne({ _id: req.params.id })
+  res
+    .status(200)
+    .json({ message: 'User Deleted', deletedItem: delCount.delCount })
 })
 
 if (process.env.NODE_ENV !== 'production') {
