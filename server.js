@@ -5,4 +5,8 @@ app.use(express.json())
 
 await connctDB()
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'API is Live Developer' })
+})
+
 export default app
